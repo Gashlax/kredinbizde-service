@@ -24,6 +24,10 @@ public class Bank {
         this.loanList = loanList;
     }
 
+    public List<CreditCard> getCreditCards(){
+        return creditCards;
+    }
+
     @Override
     public String toString() {
         return "Bank{" +

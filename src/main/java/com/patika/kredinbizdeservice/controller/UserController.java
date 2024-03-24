@@ -1,5 +1,6 @@
 package com.patika.kredinbizdeservice.controller;
 
+import com.patika.kredinbizdeservice.model.Application;
 import com.patika.kredinbizdeservice.model.User;
 import com.patika.kredinbizdeservice.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,16 @@ public class UserController {
         return userService.save(user);
     }
 
+    @GetMapping("/applications")
+    public List<Application> getApplicationListByUser(@RequestParam(name = "email") String email) {
+        return userService.getApplicationListByUser(email);
+    }
+
+    @PostMapping("/applications")
+    public Application createApplication(@RequestBody Application application) {
+        return userService.createApplication(application);
+    }
+
     /*
     get all users
      */
@@ -55,8 +66,4 @@ public class UserController {
     }
 
 
-   /* @Autowired
-    public void setUserService(IUserService userService) {
-        this.userService = userService;
-    }*/
 }
